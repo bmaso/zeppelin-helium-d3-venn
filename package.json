@@ -1,0 +1,32 @@
+{
+    "name": "zeppelin-helium-d3-venn",
+    "version": "1.0.0",
+    "description": "Zeppelin plugin to visualize table data as a Venn diagram",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "zeppelin",
+        "helium",
+        "visualization",
+        "Venn"
+    ],
+    "author": "Brian Maso <brian@blumenfeld-maso.com",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "d3": "*",
+        "npm": "^6.2.0",
+        "venn.js": "^0.2.20",
+        "zeppelin-tabledata": "*",
+        "zeppelin-vis": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bmaso/zeppelin-helium-d3-venn.git"
+    },
+    "bugs": {
+        "url": "https://github.com/bmaso/zeppelin-helium-d3-venn/issues"
+    },
+    "homepage": "https://github.com/bmaso/zeppelin-helium-d3-venn#readme"
+}
