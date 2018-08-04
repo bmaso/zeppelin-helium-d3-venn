@@ -8,8 +8,12 @@ export default class ZeppelinHeliumD3Venn extends Visualization {
     super(targetEl, config)
 
     this.transformation = new PassthroughTransformation(config)
+  }
 
-    this.vennChart = new VennDiagram()
+  createVennChart(width, height) {
+  	return new VennDiagram().
+  	    width(width).
+  	    height(height);
   }
 
   render(tableData) {
@@ -21,7 +25,7 @@ export default class ZeppelinHeliumD3Venn extends Visualization {
   		var ret = []
   		var ii
   		for(ii = 0; ii < arrayLength; ii++) {
-  			var sets = tableData.rows[ii][nameIndex].split(/\s+u(?:nion)?\s+/)
+  			var sets = tableData.rows[ii][nameIndex].split(/\s+(?:i(?:ntersect))|\u2229\s+/)
   			ret.push({ sets: sets, size: tableData.rows[ii][valueIndex]})
   		}
 
@@ -29,7 +33,8 @@ export default class ZeppelinHeliumD3Venn extends Visualization {
   	}
 
   	var vennSets = transformTableDataToVennSetsData()
-		d3.select(this.targetEl[0]).datum(vennSets).call(this.vennChart)
+		d3.select(this.targetEl[0]).datum(vennSets).call(
+			  this.createVennChart($(this.targetEl).width(), $(this.targetEl).height()));
   }
 
   getTransformation() {
