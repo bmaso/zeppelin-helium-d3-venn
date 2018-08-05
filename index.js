@@ -17,6 +17,8 @@ export default class ZeppelinHeliumD3Venn extends Visualization {
   }
 
   render(tableData) {
+    debugger;
+
   	function transformTableDataToVennSetsData(){
   		var nameIndex = 0
   		var valueIndex = 1
@@ -25,7 +27,7 @@ export default class ZeppelinHeliumD3Venn extends Visualization {
   		var ret = []
   		var ii
   		for(ii = 0; ii < arrayLength; ii++) {
-  			var sets = tableData.rows[ii][nameIndex].split(/\s+(?:i(?:ntersect))|\u2229\s+/)
+  			var sets = tableData.rows[ii][nameIndex].split(/\s+(?:(?:i(?:ntersect)?)|\u2229)\s+/)
   			ret.push({ sets: sets, size: tableData.rows[ii][valueIndex]})
   		}
 
